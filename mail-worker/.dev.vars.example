@@ -1,0 +1,11 @@
+# Cloud-Mail 环境变量示例
+# 部署时请根据实际情况修改这些值
+
+# 邮件域名 (JSON数组格式，支持多个域名)
+domain=["example.com"]
+
+# 管理员邮箱
+admin=admin@example.com
+
+# JWT密钥 (请使用随机字符串，如: openssl rand -hex 32)
+jwt_secret=your-random-secret-here

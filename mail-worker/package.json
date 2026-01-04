@@ -25,5 +25,18 @@
 		"resend": "^6.4.1",
 		"ua-parser-js": "^2.0.3",
 		"uuid": "^11.1.0"
+	},
+	"cloudflare": {
+		"bindings": {
+			"domain": {
+				"description": "邮件域名，JSON数组格式，如 `[\"example.com\"]`"
+			},
+			"admin": {
+				"description": "管理员邮箱地址，如 `admin@example.com`"
+			},
+			"jwt_secret": {
+				"description": "JWT密钥，使用 `openssl rand -hex 32` 生成随机字符串"
+			}
+		}
 	}
 }

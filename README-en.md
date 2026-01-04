@@ -41,6 +41,15 @@ With only one domain, you can create multiple different email addresses, similar
 |--------------------------|--------------------------|
 | ![](/doc/demo/demo3.png) | ![](/doc/demo/demo4.png) |
 
+## One-Click Deploy
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/martin98ksJ/cloud-mail)
+
+> **Note**: Cloudflare will automatically create a D1 database and KV namespace. You need to configure:
+> - `domain`: Email domain in JSON array format, e.g., `["example.com"]`
+> - `admin`: Admin email address
+> - `jwt_secret`: JWT secret (random string)
+
 ## Features
 
 - **💰 Low-Cost Usage**: No server required — deploy to Cloudflare Workers to reduce costs.
