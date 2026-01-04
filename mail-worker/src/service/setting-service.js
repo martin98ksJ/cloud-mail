@@ -29,14 +29,18 @@ const settingService = {
 		let domainList = c.env.domain;
 
 		if (typeof domainList === 'string') {
+			// 支持两种格式:
+			// 1. JSON数组: ["example.com","abc.com"]
+			// 2. 逗号分隔: example.com,abc.com
 			try {
 				domainList = JSON.parse(domainList)
 			} catch (error) {
-				throw new BizError(t('notJsonDomain'));
+				// JSON解析失败，尝试按逗号分隔
+				domainList = domainList.split(',').map(d => d.trim()).filter(Boolean);
 			}
 		}
 
-		if (!c.env.domain) {
+		if (!c.env.domain || !domainList || domainList.length === 0) {
 			throw new BizError(t('noDomainVariable'));
 		}
 

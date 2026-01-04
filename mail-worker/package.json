@@ -29,7 +29,7 @@
 	"cloudflare": {
 		"bindings": {
 			"domain": {
-				"description": "邮件域名，JSON数组格式，如 `[\"example.com\"]`"
+				"description": "邮件域名，支持逗号分隔如 `example.com,abc.com` 或JSON数组格式"
 			},
 			"admin": {
 				"description": "管理员邮箱地址，如 `admin@example.com`"

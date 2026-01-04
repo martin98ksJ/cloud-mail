@@ -28,7 +28,7 @@ crons = ["0 16 * * *"]	#定时任务每天晚上12点执行
 
 
 [vars]
-domain = ["example.com"]
+domain = "example.com"
 admin = "admin@example.com"
 jwt_secret = "change-me-to-random-string"
 
