@@ -9,11 +9,9 @@ enabled = true
 [[d1_databases]]
 binding = "db"
 database_name = "cloud-mail-db"
-database_id = ""
 
 [[kv_namespaces]]
 binding = "kv"
-id = ""
 
 #[[r2_buckets]]
 #binding = "r2"			#r2对象存储绑定名默认不可修改
