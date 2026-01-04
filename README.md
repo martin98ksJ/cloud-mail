@@ -47,16 +47,19 @@
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/martin98ksJ/cloud-mail/tree/main/mail-worker)
 
-**部署前准备**：先在 Cloudflare Dashboard 创建以下资源：
-1. **D1 数据库**：存储和数据库 → D1 → 创建数据库
-2. **KV 命名空间**：存储和数据库 → KV → 创建命名空间
-
-**部署时需要填写**：
-- `database_id`: D1 数据库 ID
-- `kv_namespace_id`: KV 命名空间 ID
+### 第一步：点击按钮部署
+配置以下变量后部署：
 - `domain`: 邮件域名，如 `example.com`
 - `admin`: 管理员邮箱
 - `jwt_secret`: JWT 密钥（随机字符串）
+
+### 第二步：配置存储绑定
+部署成功后，在 Cloudflare Dashboard → Workers → 设置 → 绑定：
+1. 添加 **D1 数据库**绑定：变量名 `db`
+2. 添加 **KV 命名空间**绑定：变量名 `kv`
+
+### 第三步：初始化
+访问 `https://你的域名/api/init/你的jwt_secret` 初始化数据库
 
 
 
