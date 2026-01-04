@@ -45,10 +45,10 @@
 
 ## 一键部署
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/martin98ksJ/cloud-mail)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/martin98ksJ/cloud-mail/tree/main/mail-worker)
 
 > **提示**：点击按钮后，Cloudflare 会自动创建 D1 数据库和 KV 命名空间。部署时需要配置以下变量：
-> - `domain`: 邮件域名，JSON数组格式，如 `["example.com"]`
+> - `domain`: 邮件域名，如 `example.com` 或 `example.com,abc.com`
 > - `admin`: 管理员邮箱
 > - `jwt_secret`: JWT密钥（随机字符串）
 
