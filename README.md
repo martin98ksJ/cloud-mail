@@ -47,10 +47,16 @@
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/martin98ksJ/cloud-mail/tree/main/mail-worker)
 
-> **提示**：点击按钮后，Cloudflare 会自动创建 D1 数据库和 KV 命名空间。部署时需要配置以下变量：
-> - `domain`: 邮件域名，如 `example.com` 或 `example.com,abc.com`
-> - `admin`: 管理员邮箱
-> - `jwt_secret`: JWT密钥（随机字符串）
+**部署前准备**：先在 Cloudflare Dashboard 创建以下资源：
+1. **D1 数据库**：存储和数据库 → D1 → 创建数据库
+2. **KV 命名空间**：存储和数据库 → KV → 创建命名空间
+
+**部署时需要填写**：
+- `database_id`: D1 数据库 ID
+- `kv_namespace_id`: KV 命名空间 ID
+- `domain`: 邮件域名，如 `example.com`
+- `admin`: 管理员邮箱
+- `jwt_secret`: JWT 密钥（随机字符串）
 
 
 
