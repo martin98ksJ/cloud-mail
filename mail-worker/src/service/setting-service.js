@@ -26,6 +26,10 @@ const settingService = {
 
 		const setting = await c.env.kv.get(KvConst.SETTING, { type: 'json' });
 
+		if (!setting) {
+			throw new BizError('数据库未初始化 Database not initialized.');
+		}
+
 		let domainList = c.env.domain;
 
 		if (typeof domainList === 'string') {
@@ -49,6 +53,7 @@ const settingService = {
 
 
 		let linuxdoSwitch = c.env.linuxdo_switch;
+		let projectLink = c.env.project_link;
 
 		if (typeof linuxdoSwitch === 'string' && linuxdoSwitch === 'true') {
 			linuxdoSwitch = true
@@ -57,6 +62,18 @@ const settingService = {
 		} else {
 			linuxdoSwitch = false
 		}
+
+		console.log(projectLink)
+
+		if (typeof projectLink === 'string' && projectLink === 'false') {
+			projectLink = false
+		} else if (projectLink === false) {
+			projectLink = false
+		} else {
+			projectLink = true
+		}
+
+		setting.projectLink = projectLink;
 
 		setting.linuxdoClientId = c.env.linuxdo_client_id;
 		setting.linuxdoCallbackUrl = c.env.linuxdo_callback_url;
@@ -77,10 +94,10 @@ const settingService = {
 
 
 		if (!showSiteKey) {
-			settingRow.siteKey = settingRow.siteKey ? `${settingRow.siteKey.slice(0, 12)}******` : null;
+			settingRow.siteKey = settingRow.siteKey ? `${settingRow.siteKey.slice(0, 6)}******` : null;
 		}
 
-		settingRow.secretKey = settingRow.secretKey ? `${settingRow.secretKey.slice(0, 12)}******` : null;
+		settingRow.secretKey = settingRow.secretKey ? `${settingRow.secretKey.slice(0, 6)}******` : null;
 
 		Object.keys(settingRow.resendTokens).forEach(key => {
 			settingRow.resendTokens[key] = `${settingRow.resendTokens[key].slice(0, 12)}******`;
@@ -180,7 +197,7 @@ const settingService = {
 			title: settingRow.title,
 			manyEmail: settingRow.manyEmail,
 			addEmail: settingRow.addEmail,
-			autoRefreshTime: settingRow.autoRefreshTime,
+			autoRefresh: settingRow.autoRefresh,
 			addEmailVerify: settingRow.addEmailVerify,
 			registerVerify: settingRow.registerVerify,
 			send: settingRow.send,
@@ -204,7 +221,8 @@ const settingService = {
 			linuxdoClientId: settingRow.linuxdoClientId,
 			linuxdoCallbackUrl: settingRow.linuxdoCallbackUrl,
 			linuxdoSwitch: settingRow.linuxdoSwitch,
-			minEmailPrefix: settingRow.minEmailPrefix
+			minEmailPrefix: settingRow.minEmailPrefix,
+			projectLink: settingRow.projectLink
 		};
 	}
 };
